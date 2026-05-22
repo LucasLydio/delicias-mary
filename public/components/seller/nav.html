@@ -1,0 +1,79 @@
+<nav class="admin-nav">
+  <div class="admin-nav__inner">
+    <button
+      class="admin-nav__toggle"
+      type="button"
+      aria-label="Abrir menu"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#sellerMenu"
+      aria-controls="sellerMenu"
+    >
+      <i class="bi bi-list"></i>
+    </button>
+
+    <a href="./index.html" class="admin-nav__brand text-decoration-none">
+      <div class="admin-nav__brand-mark">
+        <i class="bi bi-shop"></i>
+      </div>
+
+      <div class="admin-nav__brand-text">
+        <strong>Delícias da Mary</strong>
+        <span>Área do vendedor</span>
+      </div>
+    </a>
+
+    <div class="admin-nav__menu" aria-label="Menu vendedor">
+      <a class="admin-nav__link" href="./product.html" data-seller-link="product">
+        <i class="bi bi-bag"></i>
+        <span>Produtos</span>
+      </a>
+      <a class="admin-nav__link" href="./category.html" data-seller-link="category">
+        <i class="bi bi-tags"></i>
+        <span>Categorias</span>
+      </a>
+    </div>
+
+    <div class="admin-nav__actions">
+      <a href="/index.html" class="admin-nav__ghost text-decoration-none">
+        <i class="bi bi-house-door"></i>
+        <span>Ver site</span>
+      </a>
+
+      <button id="sellerLogout" class="admin-nav__ghost" type="button" title="Sair">
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Sair</span>
+      </button>
+
+      <a href="./index.html" class="admin-nav__profile text-decoration-none" title="Dashboard">
+        <div class="admin-nav__avatar" data-seller-avatar>V</div>
+        <div class="admin-nav__profile-text">
+          <strong data-seller-name>Vendedor</strong>
+          <span data-seller-role>seller</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="sellerMenu" aria-labelledby="sellerMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="sellerMenuLabel">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+  </div>
+
+  <div class="offcanvas-body d-flex flex-column gap-2">
+    <a class="btn btn-outline-dark text-start" href="./product.html" data-seller-link="product">
+      <i class="bi bi-bag me-2"></i>Produtos
+    </a>
+    <a class="btn btn-outline-dark text-start" href="./category.html" data-seller-link="category">
+      <i class="bi bi-tags me-2"></i>Categorias
+    </a>
+
+    <hr class="my-3" />
+
+    <a class="btn btn-outline-secondary text-start" href="/index.html">
+      <i class="bi bi-house-door me-2"></i>Ver site
+    </a>
+  </div>
+</div>
+

@@ -62,6 +62,15 @@ function init() {
         return;
       }
 
+      if (
+        nextUrl.startsWith("/seller/") &&
+        result?.user?.role !== "admin" &&
+        result?.user?.role !== "seller"
+      ) {
+        setAlert(alertEl, "Esta conta não tem permissão de vendedor.");
+        return;
+      }
+
       window.location.href = nextUrl;
     } catch (error) {
       setAlert(alertEl, error.message || "Falha ao entrar.");

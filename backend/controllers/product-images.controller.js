@@ -3,7 +3,7 @@ const authService = require("../services/auth.service");
 const { parseJsonBody, getBearerToken } = require("../utils/http");
 const { sendSuccess, badRequest, unauthorized, forbidden, sendError } = require("../utils/response");
 
-async function requireAdmin(event) {
+async function requireStaff(event) {
   const token = getBearerToken(event.headers || {});
   if (!token) {
     const error = new Error("Missing Bearer token.");
@@ -12,7 +12,7 @@ async function requireAdmin(event) {
   }
 
   const session = await authService.getSessionUser({ token });
-  if (session.user.role !== "admin") {
+  if (session.user.role !== "admin" && session.user.role !== "seller") {
     const error = new Error("Forbidden.");
     error.statusCode = 403;
     throw error;
@@ -40,7 +40,7 @@ async function handle(event) {
     }
 
     if (method === "POST") {
-      await requireAdmin(event);
+      await requireStaff(event);
 
       const body = parseJsonBody(event.body, { isBase64Encoded: Boolean(event.isBase64Encoded) });
       if (!body) return badRequest("Invalid JSON body.");
@@ -58,7 +58,7 @@ async function handle(event) {
 
     if (method === "PUT") {
       if (!id) return badRequest("Image id is required in query params.");
-      await requireAdmin(event);
+      await requireStaff(event);
 
       const body = parseJsonBody(event.body, { isBase64Encoded: Boolean(event.isBase64Encoded) });
       if (!body) return badRequest("Invalid JSON body.");
@@ -69,7 +69,7 @@ async function handle(event) {
 
     if (method === "DELETE") {
       if (!id) return badRequest("Image id is required in query params.");
-      await requireAdmin(event);
+      await requireStaff(event);
 
       const result = await productImagesService.remove(id);
       return sendSuccess(result, "Product image deleted successfully.");

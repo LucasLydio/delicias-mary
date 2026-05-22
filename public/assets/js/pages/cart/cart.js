@@ -18,7 +18,7 @@ function itemTemplate(item) {
     <div class="d-flex gap-3 align-items-start border-bottom pb-3" data-cart-item="${escapeHtml(item.product_id)}">
       <div class="flex-grow-1">
         <div class="d-flex justify-content-between gap-2">
-          <strong>${escapeHtml(item?.name || "")}</strong>
+          <strong class="text-dark">${escapeHtml(item?.name || "")}</strong>
           <span class="text-muted">${escapeHtml(formatBRLFromCents(total))}</span>
         </div>
         ${item?.description ? `<div class="text-muted small mt-1">${escapeHtml(item.description)}</div>` : ""}

@@ -56,16 +56,16 @@ function productCardTemplate({ product, categoryName, coverUrl }) {
 
       <div class="admin-product__body">
         <div class="admin-product__title">
-          <strong>${escapeHtml(product.name || "-")}</strong>
+          <strong class="text-dark">${escapeHtml(product.name || "-")}</strong>
           <span class="text-secondary">${escapeHtml(categoryName || "Sem categoria")}</span>
         </div>
 
         <div class="admin-product__price">
           <div class="admin-product__price-main">
-            <strong>${escapeHtml(hasDiscount ? final : price)}</strong>
+            <strong class="text-dark">${escapeHtml(hasDiscount ? final : price)}</strong>
             ${
               hasDiscount
-                ? `<span class="admin-product__price-was">${escapeHtml(price)}</span>`
+                ? `<p class="admin-product__price-was">${escapeHtml(price)}</p>`
                 : `<span class="admin-product__price-hint">Preço</span>`
             }
           </div>
