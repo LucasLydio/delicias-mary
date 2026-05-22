@@ -1,0 +1,88 @@
+<main class="main py-3">
+  <div class="container">
+    <section class="admin-card">
+      <div class="d-flex flex-column gap-3">
+        <div class="d-flex justify-content-between align-items-start gap-3 flex-wrap">
+          <div class="d-flex flex-column">
+            <h1 class="h4 m-0">Categorias</h1>
+            <p class="text-secondary m-0">Crie e organize as categorias do catálogo.</p>
+          </div>
+
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <button id="categoriesCreate" class="btn btn-dark" type="button">
+              <i class="bi bi-plus-lg me-2"></i>Nova categoria
+            </button>
+            <button id="categoriesRefresh" class="btn btn-outline-dark" type="button">
+              <i class="bi bi-arrow-repeat me-2"></i>Atualizar
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-toolbar">
+          <div class="admin-toolbar__left">
+            <label class="form-label m-0" for="categoriesSearch">Buscar</label>
+            <input id="categoriesSearch" class="form-control" type="search" placeholder="Ex.: Salgados" />
+          </div>
+
+          <div class="admin-toolbar__right">
+            <label class="form-label m-0" for="categoriesStatus">Status</label>
+            <select id="categoriesStatus" class="form-select">
+              <option value="all">Todas</option>
+              <option value="true">Ativas</option>
+              <option value="false">Inativas</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="adminAlert" aria-live="polite"></div>
+
+        <div id="categoriesEmpty" class="d-none admin-empty">
+          <div class="admin-empty__icon"><i class="bi bi-tags"></i></div>
+          <strong>Nenhuma categoria encontrada</strong>
+          <span>Crie sua primeira categoria para organizar os produtos.</span>
+        </div>
+
+        <div id="categoriesGrid" class="admin-grid admin-grid--cards" aria-live="polite"></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="modal fade" id="categoryModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="categoryModalTitle" class="modal-title">Categoria</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+
+      <form id="categoryForm" class="modal-body d-flex flex-column gap-3" novalidate>
+        <input type="hidden" id="categoryId" />
+
+        <div class="d-flex flex-column gap-1">
+          <label for="categoryName">Nome</label>
+          <input id="categoryName" type="text" class="form-control" placeholder="Ex.: Doces" required />
+        </div>
+
+        <div class="d-flex flex-column gap-1">
+          <label for="categoryDescription">Descrição <span class="text-secondary">(opcional)</span></label>
+          <textarea id="categoryDescription" class="form-control text-dark" rows="3" placeholder="Uma descrição curta..."></textarea>
+        </div>
+
+        <div class="d-flex flex-column gap-1" style="min-width: 140px;">
+          <label for="categoryActive">Ativa</label>
+          <select id="categoryActive" class="form-select">
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+          </select>
+        </div>
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+        <button id="saveCategoryBtn" type="submit" form="categoryForm" class="btn btn-dark">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

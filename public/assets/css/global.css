@@ -1,0 +1,49 @@
+:root {
+  --font-sans: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-brand: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  --font-brand2: "Delius Swash Caps", cursive;
+  --font: var(--font-sans);
+
+  --bg-white: #ffffff;
+  --bg-gray: #f3f4f6;
+  --bg-soft: #eef2f1;
+  --bg-brand: #2f6f62;
+
+  --text-dark: #111827;
+  --text-dark2: #4b5563;
+  --text-white: #f9fafb;
+
+  --bg: var(--bg-gray);
+
+  --text: var(--text-dark);
+  --text2: var(--text-dark2);
+  --text3: rgba(17, 24, 39, 0.6);
+
+  --muted: rgba(17, 24, 39, 0.68);
+
+  --brand: var(--bg-brand);
+  --on-brand: var(--text-white);
+
+  --border: rgba(17, 24, 39, 0.12);
+  --border-brand: rgba(47, 111, 98, 0.22);
+  --brand-box: rgba(47, 111, 98, 0.1);
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.14);
+
+  --padding-sm: .2rem; 
+  --padding-md: .6rem; 
+  --padding-lg: 1.2rem; 
+  --padding-xlg: 2.7rem; 
+
+  --gap-sm: .5rem;
+  --gap-md: .9rem; 
+  --gap-lg: 1.2rem; 
+  --gap-xlg: 2.7rem;
+
+  --radius-sm: .35rem;
+  --radius-md: .6rem;
+  --radius-lg: .8rem;
+  --radius-pill: 999px;
+}

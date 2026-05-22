@@ -1,0 +1,202 @@
+@import url("./categories-row.css");
+@import url("./cta.css");
+
+.home-container {
+  width: 100%;
+  min-height: 30dvh;
+  max-width: 1300px;
+  align-self: center;
+  padding: var(--padding-lg);
+  transform: translateY(-4rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xlg);
+  overflow: hidden;
+}
+
+
+.menu-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
+  scroll-margin-top: 90px;
+}
+
+.menu-section__header {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    position: relative;
+    h2, p {
+        z-index: 1000;
+        color: var(--text-white);
+        line-height: 1.3;
+        letter-spacing: 0.2rem;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        text-align: center;
+    }
+    p {
+        font-size: clamp(1.1rem, .8rem + 2vw, .95rem) !important;
+    }
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.464) 0%,
+    rgba(0, 0, 0, 0.586) 100%
+    );
+    pointer-events: none;
+    border-radius: var(--radius-lg);
+    @media (max-width: 700px) {
+        width: 100dvw;
+        border-radius: inherit;
+        background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.636) 0%,
+        rgba(0, 0, 0, 0.586) 100%
+        );
+    }
+}
+
+.box1, .box2, .box3 {
+    max-width: 740px;
+    min-width: 700px; 
+    height: 220px;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--padding-md) var(--padding-lg);
+    background-position: center;
+    background-size: cover;
+    @media (max-width: 700px) {
+        min-width: inherit;
+        width: 100dvw;
+        border-radius: inherit; 
+        height: 140px;
+    }
+}
+
+.box1 { background-color: var(--soft); }
+
+.box1 { 
+    background-image: url("../../../images/home/prato-do-dia.webp");
+}
+
+.box2 { 
+    background-image: url("../../../images/home/acompanhamentos.webp");
+}
+
+.box3 {
+    background-image: url("../../../images/home/bebidas.webp");
+}
+
+.products {
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
+.menu-section__grid {
+    width: fit-content;
+    display: flex;
+    gap: var(--gap-lg);
+}
+
+.menu-card {
+    width: 250px;
+    height: 100%;
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: .65rem;
+    transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-brand);
+}
+
+.menu-card h3,
+.menu-card h6 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.menu-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.menu-card span {
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.menu-card__image-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.menu-card__image[src$=".svg"] {
+  object-fit: contain;
+  padding: 0.75rem;
+}
+
+.menu-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 0;
+}
+
+.menu-card__content p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    min-width: 100%;
+    padding: var(--padding-md);
+    gap: var(--gap-lg);
+  }
+  .menu-section {
+    padding-inline: var(--padding-md);
+  }
+
+} 

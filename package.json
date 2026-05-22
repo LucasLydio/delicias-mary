@@ -1,0 +1,15 @@
+{
+  "name": "delicias-mary",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Simple e-commerce/catalog MVP (Netlify + Supabase).",
+  "scripts": {
+    "dev": "npx netlify dev",
+    "test:routes": "node scripts/test-netlify-routes.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

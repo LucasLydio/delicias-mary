@@ -1,0 +1,14 @@
+input {
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-login {
+    background-color: var(--bg-brand);
+    color: var(--text-white);
+    transition: ease all .5s;
+    &:hover {
+        background-color: var(--bg-brand);
+        transform: translateY(2px);
+    }
+}

@@ -1,0 +1,17 @@
+#adminAlert .alert {
+  border-radius: 0.5rem;
+}
+
+.admin-card h3 {
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 991px) {
+  .admin .table-responsive {
+    display: none;
+  }
+
+  #usersCards {
+    display: grid !important;
+  }
+}

@@ -1,0 +1,214 @@
+delicias-mary
+├── backend
+│   ├── config
+│   │   ├── auth.js
+│   │   ├── env.js
+│   │   ├── storage.js
+│   │   └── supabase.js
+│   ├── constants
+│   │   ├── messages.js
+│   │   └── roles.js
+│   ├── controllers
+│   │   ├── auth.controller.js
+│   │   ├── categories.controller.js
+│   │   ├── product-images.controller.js
+│   │   ├── products.controller.js
+│   │   ├── sessions.controller.js
+│   │   └── users.controller.js
+│   ├── repositories
+│   │   ├── categories.repository.js
+│   │   ├── product-images.repository.js
+│   │   ├── products.repository.js
+│   │   └── users.repository.js
+│   ├── services
+│   │   ├── admins.service.js
+│   │   ├── auth.service.js
+│   │   ├── cart.service.js
+│   │   ├── categories.service.js
+│   │   ├── contact.service.js
+│   │   ├── orders.service.js
+│   │   ├── product-images.service.js
+│   │   ├── products.service.js
+│   │   └── users.service.js
+│   └── utils
+│       ├── date.js
+│       ├── hash.js
+│       ├── http.js
+│       ├── pagination.js
+│       ├── permissions.js
+│       ├── response.js
+│       ├── slug.js
+│       └── validators.js
+├── netlify
+│   └── functions
+│       ├── admin.js
+│       ├── auth.js
+│       ├── cart.js
+│       ├── category.js
+│       ├── contact.js
+│       ├── order.js
+│       ├── product-image.js
+│       ├── product.js
+│       ├── session.js
+│       └── user.js
+├── public
+│   ├── admin
+│   │   ├── category.html
+│   │   ├── index.html
+│   │   ├── product.html
+│   │   ├── setting.html
+│   │   └── user.html
+│   ├── assets
+│   │   ├── css
+│   │   │   ├── layout
+│   │   │   │   ├── footer.css
+│   │   │   │   ├── header.css
+│   │   │   │   ├── layout.css
+│   │   │   │   └── sidebar.css
+│   │   │   ├── pages
+│   │   │   │   ├── about
+│   │   │   │   │   └── about.css
+│   │   │   │   ├── admin
+│   │   │   │   │   ├── admin.css
+│   │   │   │   │   ├── body.css
+│   │   │   │   │   ├── category-table.css
+│   │   │   │   │   ├── nav.css
+│   │   │   │   │   ├── product-table.css
+│   │   │   │   │   └── user-table.css
+│   │   │   │   ├── cart
+│   │   │   │   │   └── cart.css
+│   │   │   │   ├── contact
+│   │   │   │   │   └── contact.css
+│   │   │   │   ├── home
+│   │   │   │   │   ├── banners.css
+│   │   │   │   │   ├── categories-row.css
+│   │   │   │   │   ├── categories.css
+│   │   │   │   │   ├── cta.css
+│   │   │   │   │   ├── hero.css
+│   │   │   │   │   ├── home.css
+│   │   │   │   │   └── products-grid.css
+│   │   │   │   ├── login
+│   │   │   │   │   └── login.css
+│   │   │   │   ├── product
+│   │   │   │   │   └── product.css
+│   │   │   │   ├── register
+│   │   │   │   │   └── register.css
+│   │   │   │   ├── shop
+│   │   │   │   │   └── shop.css
+│   │   │   │   └── user
+│   │   │   │       └── user.css
+│   │   │   ├── global.css
+│   │   │   └── typography.css
+│   │   ├── files_upload
+│   │   ├── images
+│   │   │   ├── banners
+│   │   │   │   └── banner01.png
+│   │   │   ├── home
+│   │   │   │   ├── acompanhamentos.webp
+│   │   │   │   ├── bebidas.webp
+│   │   │   │   ├── french-fries.svg
+│   │   │   │   ├── juice.svg
+│   │   │   │   ├── plate-steam.svg
+│   │   │   │   ├── plate-steam02.svg
+│   │   │   │   ├── plate.svg
+│   │   │   │   ├── prato-do-dia.webp
+│   │   │   │   ├── receipt.svg
+│   │   │   │   ├── rice-beans.svg
+│   │   │   │   └── salad.svg
+│   │   │   ├── icons
+│   │   │   ├── placeholders
+│   │   │   ├── mary-logo.jpg
+│   │   │   └── mary.PNG
+│   │   └── js
+│   │       ├── components
+│   │       │   ├── auth-nav.js
+│   │       │   ├── categories.js
+│   │       │   └── include.js
+│   │       ├── pages
+│   │       │   ├── admin
+│   │       │   │   ├── admin.js
+│   │       │   │   ├── categories-table.js
+│   │       │   │   ├── products-table.js
+│   │       │   │   └── users-table.js
+│   │       │   ├── cart
+│   │       │   │   └── cart.js
+│   │       │   ├── home
+│   │       │   │   ├── cta.js
+│   │       │   │   └── home.js
+│   │       │   ├── login
+│   │       │   │   └── login.js
+│   │       │   ├── product
+│   │       │   │   └── product.js
+│   │       │   ├── register
+│   │       │   │   └── register.js
+│   │       │   └── user
+│   │       │       └── user.js
+│   │       ├── utils
+│   │       │   ├── dom.js
+│   │       │   ├── format.js
+│   │       │   ├── money.js
+│   │       │   ├── storage.js
+│   │       │   ├── validators.js
+│   │       │   └── whatsapp.js
+│   │       ├── api.js
+│   │       ├── auth.js
+│   │       ├── cart-store.js
+│   │       ├── cart.js
+│   │       ├── catalog.js
+│   │       ├── components.js
+│   │       └── main.js
+│   ├── components
+│   │   ├── admin
+│   │   │   ├── body.html
+│   │   │   ├── category-table.html
+│   │   │   ├── nav.html
+│   │   │   ├── product-table.html
+│   │   │   └── user-table.html
+│   │   ├── auth
+│   │   │   ├── login-form.html
+│   │   │   └── register-form.html
+│   │   ├── cart
+│   │   │   └── cart.html
+│   │   ├── common
+│   │   │   ├── alert.html
+│   │   │   ├── category-card.html
+│   │   │   ├── empty-state.html
+│   │   │   ├── loader.html
+│   │   │   ├── modal.html
+│   │   │   └── product-card.html
+│   │   ├── home
+│   │   │   ├── categories-row.html
+│   │   │   ├── category.html
+│   │   │   ├── cta.html
+│   │   │   ├── hero.html
+│   │   │   ├── home.html
+│   │   │   ├── newsletter.html
+│   │   │   ├── product.html
+│   │   │   └── shop-cta.html
+│   │   ├── layout
+│   │   │   ├── footer.html
+│   │   │   ├── header.html
+│   │   │   └── sidebar.html
+│   │   ├── product
+│   │   │   └── product.html
+│   │   └── user
+│   │       ├── dashboard-summary.html
+│   │       ├── order-table.html
+│   │       └── profile-form.html
+│   ├── about.html
+│   ├── cart.html
+│   ├── contact.html
+│   ├── index.html
+│   ├── login.html
+│   ├── product.html
+│   ├── register.html
+│   └── user.html
+├── .env.example
+├── .gitignore
+├── deno.lock
+├── LICENSE
+├── netlify.toml
+├── package.json
+├── read-projects.py
+├── README.md
+└── skills.md

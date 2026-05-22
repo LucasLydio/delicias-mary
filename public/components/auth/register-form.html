@@ -1,0 +1,66 @@
+<main class="container pb-2 auth-page">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-7 col-lg-6">
+      <h2 class=" text-center mb-3">Criar conta</h2>
+      <p class="text-muted text-center mb-4">Crie sua conta para comprar mais rápido.</p>
+
+      <div id="register-alert" class="alert alert-danger d-none" role="alert"></div>
+
+      <form id="register-form" class="card card-body shadow-sm">
+        <div class="row g-3">
+          <div class="col-12">
+            <label for="register-name" class="form-label">Nome</label>
+            <input id="register-name" name="name" type="text" class="form-control" autocomplete="name" required />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="register-email" class="form-label">Email</label>
+            <input id="register-email" name="email" type="email" class="form-control" autocomplete="email" required />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="register-phone" class="form-label">Telefone (opcional)</label>
+            <input id="register-phone" name="phone" type="tel" class="form-control" autocomplete="tel" />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="register-password" class="form-label">Senha</label>
+            <input
+              id="register-password"
+              name="password"
+              type="password"
+              class="form-control"
+              autocomplete="new-password"
+              minlength="6"
+              required
+            />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="register-password-confirm" class="form-label">Confirmar senha</label>
+            <input
+              id="register-password-confirm"
+              name="password_confirm"
+              type="password"
+              class="form-control"
+              autocomplete="new-password"
+              minlength="6"
+              required
+            />
+          </div>
+
+          <div class="col-12">
+            <button id="register-submit" type="submit" class="btn btn-register w-100">
+              Criar conta
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-3 text-center">
+          <span class="text-muted">Já tem conta?</span>
+          <a href="login.html">Entrar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

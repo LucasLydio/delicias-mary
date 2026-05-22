@@ -1,0 +1,64 @@
+<main class="main py-3">
+  <div class="container">
+    <section class="admin-card">
+      <div class="d-flex flex-column gap-3">
+        <div class="d-flex flex-column">
+          <h1 class="h4 m-0">Config</h1>
+          <p class="text-secondary m-0">Sessão e diagnóstico rápido do admin.</p>
+        </div>
+
+        <div id="adminAlert" aria-live="polite"></div>
+
+        <div class="admin-grid">
+          <div class="admin-panel">
+            <h2 class="h6 m-0">Sessão</h2>
+            <p class="text-secondary m-0">Informações do usuário logado.</p>
+
+            <div class="mt-3">
+              <div class="admin-kv">
+                <span>Nome</span>
+                <strong id="sessionName">-</strong>
+              </div>
+              <div class="admin-kv">
+                <span>Email</span>
+                <strong id="sessionEmail">-</strong>
+              </div>
+              <div class="admin-kv">
+                <span>Role</span>
+                <strong id="sessionRole">-</strong>
+              </div>
+            </div>
+
+            <div class="mt-3 d-flex gap-2 flex-wrap">
+              <button id="sessionLogout" type="button" class="btn btn-outline-danger">
+                <i class="bi bi-box-arrow-right me-2"></i>Sair
+              </button>
+            </div>
+          </div>
+
+          <div class="admin-panel">
+            <h2 class="h6 m-0">Links rápidos</h2>
+            <p class="text-secondary m-0">Atalhos para testar o backend.</p>
+
+            <div class="mt-3 d-flex flex-column gap-2">
+              <a class="btn btn-outline-dark text-start" href="/.netlify/functions/category?limit=20&offset=0" target="_blank" rel="noreferrer">
+                <i class="bi bi-tags me-2"></i>Listar categorias
+              </a>
+              <a class="btn btn-outline-dark text-start" href="/.netlify/functions/product?limit=20&offset=0" target="_blank" rel="noreferrer">
+                <i class="bi bi-bag me-2"></i>Listar produtos
+              </a>
+              <a class="btn btn-outline-secondary text-start" href="/.netlify/functions/session" target="_blank" rel="noreferrer">
+                <i class="bi bi-shield-lock me-2"></i>Ver sessão (precisa token)
+              </a>
+            </div>
+
+            <div class="mt-3 small text-secondary">
+              Dica: para rodar localmente use <code>netlify dev</code> e confira o <code>.env</code>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+

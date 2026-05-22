@@ -1,0 +1,102 @@
+<section class="admin-card">
+  <div class="d-flex flex-column gap-3">
+    <div class="d-flex justify-content-between align-items-center gap-3 flex-wrap">
+      <div class="d-flex flex-column">
+        <h3 class="m-0">Usuários</h3>
+        <p class="text-secondary m-0">Somente admin.</p>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <button id="usersCreate" class="btn btn-dark btn-sm" type="button">
+          <i class="bi bi-person-plus me-2"></i>Novo
+        </button>
+        <button id="usersRefresh" class="btn btn-outline-dark btn-sm" type="button">
+          <i class="bi bi-arrow-repeat me-2"></i>Atualizar
+        </button>
+      </div>
+    </div>
+
+    <div id="adminAlert"></div>
+
+    <div id="usersCards" class="admin-grid admin-grid--cards d-none" aria-live="polite"></div>
+
+    <div class="table-responsive">
+      <table class="table table-sm table-hover align-middle mb-0">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Role</th>
+            <th>Ativo</th>
+            <th>Criado</th>
+            <th class="text-end">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="usersTbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="userModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="userModalTitle" class="modal-title">Usuário</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+
+      <form id="userForm" class="modal-body d-flex flex-column gap-3" novalidate>
+        <input type="hidden" id="userId" />
+
+        <div class="d-flex flex-column gap-1">
+          <label for="userName">Nome</label>
+          <input id="userName" type="text" class="form-control" required />
+        </div>
+
+        <div class="d-flex flex-column gap-1">
+          <label for="userEmail">Email</label>
+          <input id="userEmail" type="email" class="form-control" required />
+        </div>
+
+        <div class="d-flex flex-column gap-1">
+          <label for="userPhone">Telefone</label>
+          <input id="userPhone" type="tel" class="form-control" />
+        </div>
+
+        <div class="d-flex flex-column gap-1">
+          <label for="userPassword">Senha <span class="text-secondary">(opcional ao editar)</span></label>
+          <input id="userPassword" type="password" class="form-control" autocomplete="new-password" />
+        </div>
+
+        <div class="d-flex gap-2 flex-wrap">
+          <div class="d-flex flex-column gap-1 flex-fill">
+            <label for="userRole">Role</label>
+            <select id="userRole" class="form-select">
+              <option value="common">common</option>
+              <option value="seller">seller</option>
+              <option value="admin">admin</option>
+            </select>
+          </div>
+
+          <div class="d-flex flex-column gap-1" style="min-width: 140px;">
+            <label for="userActive">Ativo</label>
+            <select id="userActive" class="form-select">
+              <option value="true">Sim</option>
+              <option value="false">Não</option>
+            </select>
+          </div>
+        </div>
+      </form>
+
+      <div class="modal-footer">
+        <button id="resetPasswordBtn" type="button" class="btn btn-outline-secondary">
+          <i class="bi bi-key me-2"></i>Reset senha
+        </button>
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+        <button id="saveUserBtn" type="submit" form="userForm" class="btn btn-dark">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>

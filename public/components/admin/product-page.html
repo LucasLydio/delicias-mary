@@ -1,0 +1,181 @@
+<main class="main py-3">
+  <div class="container">
+    <section class="admin-card">
+      <div class="d-flex flex-column gap-3">
+        <div class="d-flex justify-content-between align-items-start gap-3 flex-wrap">
+          <div class="d-flex flex-column">
+            <h1 class="h4 m-0">Produtos</h1>
+            <p class="text-secondary m-0">Crie produtos, ajuste preços e envie imagens.</p>
+          </div>
+
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <button id="productsCreate" class="btn btn-dark" type="button">
+              <i class="bi bi-plus-lg me-2"></i>Novo produto
+            </button>
+            <button id="productsRefresh" class="btn btn-outline-dark" type="button">
+              <i class="bi bi-arrow-repeat me-2"></i>Atualizar
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-toolbar admin-toolbar--wide">
+          <div class="admin-toolbar__left">
+            <label class="form-label m-0" for="productsSearch">Buscar</label>
+            <input id="productsSearch" class="form-control" type="search" placeholder="Ex.: Coxinha" />
+          </div>
+
+          <div class="admin-toolbar__right">
+            <div class="admin-toolbar__field">
+              <label class="form-label m-0" for="productsCategory">Categoria</label>
+              <select id="productsCategory" class="form-select">
+                <option value="">Todas</option>
+              </select>
+            </div>
+
+            <div class="admin-toolbar__field">
+              <label class="form-label m-0" for="productsStatus">Status</label>
+              <select id="productsStatus" class="form-select">
+                <option value="all">Todos</option>
+                <option value="true">Ativos</option>
+                <option value="false">Inativos</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="adminAlert" aria-live="polite"></div>
+
+        <div id="productsEmpty" class="d-none admin-empty">
+          <div class="admin-empty__icon"><i class="bi bi-bag"></i></div>
+          <strong>Nenhum produto encontrado</strong>
+          <span>Crie seu primeiro produto para aparecer na vitrine.</span>
+        </div>
+
+        <div id="productsGrid" class="admin-grid admin-grid--cards" aria-live="polite"></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="productModalTitle" class="modal-title">Produto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+
+      <form id="productForm" class="modal-body d-flex flex-column gap-3" novalidate>
+        <input type="hidden" id="productId" />
+
+        <div class="row g-3">
+          <div class="col-12 col-lg-7">
+            <label class="form-label" for="productName">Nome</label>
+            <input id="productName" type="text" class="form-control" placeholder="Ex.: Bolo de chocolate" required />
+          </div>
+
+          <div class="col-12 col-lg-5">
+            <label class="form-label" for="productCategory">Categoria</label>
+            <select id="productCategory" class="form-select" required>
+              <option value="">Carregando...</option>
+            </select>
+            <div class="form-text">Selecione pelo nome (sem UUID).</div>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-lg-4">
+            <label class="form-label" for="productPrice">Preço</label>
+            <input id="productPrice" type="text" inputmode="decimal" class="form-control" placeholder="Ex.: 19,90" required />
+            <div class="form-text">Digite em reais (R$).</div>
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <label class="form-label" for="productDiscount">Desconto <span class="text-secondary">(opcional)</span></label>
+            <input id="productDiscount" type="text" inputmode="decimal" class="form-control" placeholder="Ex.: 0,00" />
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <label class="form-label" for="productActive">Ativo</label>
+            <select id="productActive" class="form-select">
+              <option value="true">Sim</option>
+              <option value="false">Não</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="form-label" for="productDescription">Descrição <span class="text-secondary">(opcional)</span></label>
+          <textarea id="productDescription" class="form-control" rows="4" placeholder="Detalhes do produto..."></textarea>
+        </div>
+
+        <details class="admin-details">
+          <summary>Opções avançadas</summary>
+          <div class="mt-2">
+            <label class="form-label" for="productSlug">Slug <span class="text-secondary">(opcional)</span></label>
+            <input id="productSlug" type="text" class="form-control" placeholder="Ex.: bolo-de-chocolate" />
+            <div class="form-text">Se vazio, será gerado automaticamente pelo nome.</div>
+          </div>
+        </details>
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+        <button id="saveProductBtn" type="submit" form="productForm" class="btn btn-dark">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="imageModalTitle" class="modal-title">Imagem do produto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+
+      <form id="imageForm" class="modal-body d-flex flex-column gap-3" novalidate>
+        <input type="hidden" id="imageProductId" />
+
+        <div class="admin-image-upload">
+          <div class="admin-image-upload__preview">
+            <img id="imagePreview" alt="Prévia da imagem" />
+            <div id="imagePreviewPlaceholder" class="admin-image-upload__placeholder">
+              <i class="bi bi-image"></i>
+              <span>Selecione uma imagem para ver a prévia</span>
+            </div>
+          </div>
+
+          <div class="admin-image-upload__form">
+            <div>
+              <label class="form-label" for="imageFile">Arquivo</label>
+              <input id="imageFile" type="file" class="form-control" accept="image/*" />
+              <div class="form-text">PNG, JPG ou WebP. Máx: 5MB.</div>
+            </div>
+
+            <div>
+              <label class="form-label" for="imageAlt">Texto alternativo <span class="text-secondary">(opcional)</span></label>
+              <input id="imageAlt" type="text" class="form-control" placeholder="Ex.: Foto do produto" />
+            </div>
+
+            <div class="form-check">
+              <input id="imageIsCover" class="form-check-input" type="checkbox" />
+              <label class="form-check-label" for="imageIsCover">Definir como capa</label>
+            </div>
+          </div>
+        </div>
+
+        <div id="imageAlert" aria-live="polite"></div>
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Fechar</button>
+        <button id="uploadImageBtn" type="submit" form="imageForm" class="btn btn-dark">
+          <i class="bi bi-upload me-2"></i>Enviar imagem
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

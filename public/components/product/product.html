@@ -1,0 +1,40 @@
+<main class="container py-4" data-product-page>
+  <div class="row g-4 align-items-start">
+    <div class="col-12 col-lg-6">
+      <div class="card shadow-sm">
+        <img id="product-image" src="/assets/images/mary-logo.jpg" alt="" class="card-img-top" style="object-fit: cover; max-height: 420px" />
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <h1 id="product-title" class="h3 mb-2">Produto</h1>
+      <p id="product-description" class="text-muted mb-3"></p>
+
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <div class="h4 m-0" id="product-price"></div>
+        <div class="text-muted text-decoration-line-through" id="product-original-price" hidden></div>
+      </div>
+
+      <div id="product-alert"></div>
+
+      <div class="card card-body shadow-sm">
+        <div class="row g-2 align-items-end">
+          <div class="col-5 col-sm-4">
+            <label for="product-qty" class="form-label mb-1">Quantidade</label>
+            <input id="product-qty" type="number" min="1" step="1" value="1" class="form-control" />
+          </div>
+          <div class="col-7 col-sm-8 d-grid">
+            <button id="product-add" type="button" class="btn btn-success">
+              <i class="bi bi-cart-plus me-2"></i>Adicionar ao carrinho
+            </button>
+          </div>
+          <div class="col-12 d-grid d-sm-flex gap-2 mt-2">
+            <a href="/cart.html" class="btn btn-outline-dark flex-fill"><i class="bi bi-cart me-2"></i>Ver carrinho</a>
+            <a href="/index.html" class="btn btn-outline-secondary flex-fill"><i class="bi bi-arrow-left me-2"></i>Voltar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+

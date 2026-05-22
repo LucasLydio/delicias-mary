@@ -1,0 +1,7 @@
+.env
+.netlify/
+.npm-cache/
+node_modules/
+.env
+netlify-dev.err.log
+netlify-dev.out.log
